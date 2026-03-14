@@ -6,11 +6,11 @@
   <!-- Preload imagens de fundo para melhorar LCP -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Adquira já este produto e transforme seu dia a dia. Conforto e praticidade ao seu alcance. Qualidade superior para uma experiência única. Compre agora" />
+  <meta name="description" content="Adquira agora seu produto e eleve sua experiência diária. Qualidade e durabilidade para sua vida. Transforme seu dia com facilidade. Envio rápido e seguro." />
           <meta name="keywords" content="Ozenvitta" />
           <meta name="robots" content="noindex, nofollow">
           <meta http-equiv="Content-Language" content="pt">
-  <script type="application/json" id="adsx_info">{"url":"https://oafiliado.site/ozenvitta","affiliate_link":"https://app.monetizze.com.br/r/ATQ25705897","platform":"","platformSource":"monetizze","type":"cookie","product_name":"Ozenvitta","language":"pt","created_at":"2026-03-14T15:52:34.038Z","unique_id":"L1Q3IDY7_1773503551411_yiqt8z"}</script>
+  <script type="application/json" id="adsx_info">{"url":"https://oafiliado.site/ozenvitta","affiliate_link":"https://app.monetizze.com.br/r/ATQ25705897","platform":"","platformSource":"monetizze","type":"cookie","product_name":"Ozenvitta","language":"pt","created_at":"2026-03-14T15:58:01.469Z","unique_id":"L1Q3IDY7_1773503878926_2zyqnl"}</script>
   <title>Ozenvitta</title>
   <style>
     /* Estilos gerais */
@@ -164,7 +164,7 @@ gtag('js', new Date());
 gtag('config', 'AW-16796793964');
 </script>
 
-<!-- UTMify Script -->
+<!-- Script UTMify -->
 <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
@@ -173,7 +173,7 @@ gtag('config', 'AW-16796793964');
   defer
 ></script>
 
-<!-- Script para preservar GCLID -->
+<!-- Script para salvar GCLID -->
 <script>
 (function () {
   const urlParams = new URLSearchParams(window.location.search);
@@ -183,46 +183,48 @@ gtag('config', 'AW-16796793964');
     localStorage.setItem('gclid', gclid);
   }
 
-  const savedGclid = localStorage.getItem('gclid');
+  const saved = localStorage.getItem('gclid');
 
-  if (!urlParams.get('gclid') && savedGclid) {
+  if (!urlParams.get('gclid') && saved) {
     const newUrl = new URL(window.location.href);
-    newUrl.searchParams.set('gclid', savedGclid);
+    newUrl.searchParams.set('gclid', saved);
     window.history.replaceState({}, '', newUrl);
   }
 })();
 </script>
 
+<!-- Script que adiciona GCLID no botão do checkout -->
 <script>
 (function () {
-  const params = new URLSearchParams(window.location.search);
-  const gclid = params.get('gclid');
 
-  if (gclid) {
-    localStorage.setItem('gclid', gclid);
+  function addParamsToButtons() {
+    const params = new URLSearchParams(window.location.search);
+    const gclid = params.get('gclid') || localStorage.getItem('gclid');
+
+    if (!gclid) return;
+
+    document.querySelectorAll('a').forEach(function(link) {
+      if (!link.href) return;
+
+      if (link.href.includes('ozenvitta.com/pvmon')) {
+        const url = new URL(link.href);
+        url.searchParams.set('gclid', gclid);
+
+        ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(param){
+          const value = params.get(param);
+          if (value) url.searchParams.set(param, value);
+        });
+
+        link.href = url.toString();
+      }
+    });
   }
 
-  const savedGclid = localStorage.getItem('gclid');
-  const savedParams = new URLSearchParams(window.location.search);
+  addParamsToButtons();
+  window.addEventListener("load", addParamsToButtons);
+  setTimeout(addParamsToButtons, 1000);
+  setTimeout(addParamsToButtons, 2500);
 
-  document.querySelectorAll('a').forEach(function(link) {
-    try {
-      const url = new URL(link.href, window.location.origin);
-
-      if (savedGclid && !url.searchParams.get('gclid')) {
-        url.searchParams.set('gclid', savedGclid);
-      }
-
-      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(param) {
-        const value = savedParams.get(param);
-        if (value && !url.searchParams.get(param)) {
-          url.searchParams.set(param, value);
-        }
-      });
-
-      link.href = url.toString();
-    } catch(e) {}
-  });
 })();
 </script><script>function click() {
       document.getElementById("goToPage").click();
@@ -252,7 +254,7 @@ gtag('config', 'AW-16796793964');
     });
   </script>
   
-  <div class="disclaimer">Divulgação de Afiliados: esta é uma página de afiliado independente. Se você comprar através dos links aqui, posso ganhar uma comissão. Isso não altera o preço final que você paga.</div>
+  <div class="disclaimer">Divulgação de Afiliados: esta é uma página de afiliados independente. Se você comprar através dos links aqui, eu poderei ganhar uma comissão. Isso não altera o preço final que você paga.</div>
 </body>
 
 </html>
